@@ -1,16 +1,17 @@
-require("dotenv").config();
-const express = require("express")
+const express = require("express");
+const mongoose = require("mongoose");
+
 const app = express();
-const PORT = process.env.PORT || 5000
-const mongoose = require("mongoose")
-const MONGO = process.env.MONGO
+const PORT = 5000;
 
+// Direct MongoDB URI (replace with your actual URI)
+const MONGO_URI = "mongodb+srv://situdancer9:er.situ5901@cluster0.4etqrta.mongodb.net/";
 
-mongoose.connect(MONGO)
-.then(()=>console.log("DataBase Connect Successfully"))
-.catch(()=>console.log("Database is not connected"))
+// Connect to MongoDB
+mongoose.connect(MONGO_URI)
+  .then(() => console.log("✅ Database Connected Successfully"))
+  .catch((err) => console.error("❌ Database Connection Failed:", err));
 
-
-app.listen(PORT,(req,res)=>{
-    console.log(`Server Running at http://localhost:${PORT}`)
-})
+app.listen(PORT, () => {
+  console.log(`🚀 Server Running at http://localhost:${PORT}`);
+});
