@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // ✅ Replace with your actual MongoDB connection string
-const MONGO_URI = "mongodb+srv://situdancer9:er.situ5901@cluster0.4etqrta.mongodb.net/";
+const MONGO_URI = "mongodb+srv://parveenchouhan082:delllatitude7480e@cluster0.na2jf.mongodb.net/";
 
 // Middleware to log all incoming requests
 app.use((req, res, next) => {
