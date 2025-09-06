@@ -13,7 +13,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// MongoDB connection
+// MongoDB connection (won’t stop server if fails)
 async function connectDB() {
   try {
     console.log("🔄 Connecting to MongoDB...");
@@ -22,16 +22,16 @@ async function connectDB() {
   } catch (err) {
     console.error("❌ Database Connection Failed:");
     console.error(err.message);
-    process.exit(1); // Stop app if DB fails
+    console.log("⚠️ Server will keep running without DB connection");
   }
 }
 
 connectDB();
 
 // Example route
-app.get("/", (req, res) => {
+app.get("/kc", (req, res) => {
   console.log("📢 Root route hit");
-  res.send("Hello! Your server & MongoDB are running 🚀");
+  res.send("Hello! Your server is running 🚀 (DB may or may not be connected)");
 });
 
 // Start server
